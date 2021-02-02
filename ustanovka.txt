@@ -67,7 +67,7 @@ git status
 
               git pull(Скачать изменения из репозитория)https://githowto.com/ru/aliases
 __________________________________________________________________
-Установка блога Puput  (https://puput.readthedocs.io/en/latest/)
+
 
 
 
