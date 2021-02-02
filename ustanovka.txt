@@ -1,0 +1,84 @@
+python -m pip install -U pip  # Обновить pip
+pip install Pillow
+pip install wagtail
+python -m django --version
+python  # проверяю версию питона
+quit() # Выход из интерпритатора
+wagtail start mysite
+cd mysite
+./manage.py startapp accounts
+ pip install -r requirements.txt
+ python -m django --version   # проверить версию django
+
+
+ БАЗА ДАННЫХ POSTGRES                                                https://proglib.io/p/learn-postgresql
+
+(Версию клиентской утилиты psql в PostgreSQL  можно найти с помощью следующей команды:
+psql --version)
+
+sudo apt update
+sudo apt install postgresql postgresql-contrib
+
+переключиться на учетную запись postgres на вашем сервере
+sudo -i -u postgres  (выйти - exit)
+psql -l - список баз данных.
+                                         createuser --interactive  (создать пользователя)
+psql
+
+CREATE DATABASE homes; # Создаем новую базу        (create user ole; # создание пользователя)
+CREATE user ole with login password 'globo232';    (DROP user ole;  # удаление пользователя)
+
+\q
+exit
+
+pip install psycopg2-binary
+
+mysite/settings
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'name_db',
+        'USER': 'user_name',
+        'PASSWORD': 'password_db',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+}
+_____________________________________________________________
+Приложение accounts(https://learndjango.com/tutorials/django-custom-user-model   https://tproger.ru/translations/extending-django-user-model/#var3)
+
+python manage.py makemigrations accounts
+python manage.py migrate
+__________________________________________________________________
+python manage.py createsuperuser
+python manage.py runserver
+Ctrl+C
+cd ..
+______________________________________________________________
+GITHUB
+echo "# real-estate" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/azhalkov/estate-real.git
+git push -u origin main
+git status
+
+              git pull(Скачать изменения из репозитория)https://githowto.com/ru/aliases
+__________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

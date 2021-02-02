@@ -1,0 +1,18 @@
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page.title }}</title>
+</head>
+<body>
+{{ page.related_links.name
+}}
+
+{{ page.zagolovok }}
+{{ page.body|richtext }}
+{% image page.photo fill-800 %}
+
+</body>
+</html>
