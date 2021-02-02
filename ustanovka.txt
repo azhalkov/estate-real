@@ -61,7 +61,7 @@ git init
 git add README.md
 git commit -m "first commit"
 git branch -M main
-git remote add origin https://github.com/azhalkov/real-estate.git
+git remote add origin https://github.com/azhalkov/estate-real.git
 git push -u origin main
 git status
 
