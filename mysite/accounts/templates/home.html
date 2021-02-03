@@ -1,15 +1,18 @@
 <!-- templates/home.html -->
 {% extends 'base.html' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}accounts/home{% endblock %}
 
 {% block content %}
+
 {% if user.is_authenticated %}
+<a href="admin/">admin</a>
   Hi {{ user.username }}!
-  <p><a href="{% url 'logout' %}">Log Out</a></p>
+  <p><a href="{% url 'logout' %}">Остановить работу(выход)</a></p>
 {% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">Log In</a> |
-  <a href="{% url 'signup' %}">Sign Up</a>
+  <p>Сделай выбор</p>
+  <a href="{% url 'login' %}">Вход</a> |
+  <a href="{% url 'signup' %}">Регистрация</a> |
+<a href="#">Гость</a>
 {% endif %}
 {% endblock %}

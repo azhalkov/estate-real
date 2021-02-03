@@ -18,7 +18,6 @@ urlpatterns = [
     path('documents/', include(wagtaildocs_urls)),
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-
     path('search/', search_views.search, name='search'),
 
 ]
