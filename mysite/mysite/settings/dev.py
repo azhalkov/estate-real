@@ -11,6 +11,15 @@ ALLOWED_HOSTS = ['*']
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+INSTALLED_APPS = INSTALLED_APPS + [
+    'debug_toolbar',
+]  # (k9)
+
+MIDDLEWARE = MIDDLEWARE + [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',  # (k9)
+]
+
+INTERNAL_IPS = ("127.0.0.1", "172.17.0.1")  # (k9)...https://django-debug-toolbar.readthedocs.io/en/latest/installation.html
 
 try:
     from .local import *
