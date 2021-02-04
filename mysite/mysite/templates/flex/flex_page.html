@@ -1,0 +1,27 @@
+{# mysite/home/page #}
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+<meta charset="UTF-8">
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/litera.css' %}">
+{% endblock %}
+
+
+{% block title %}
+{{ page.title }}
+{% endblock %}
+
+
+{% block content %}
+<h1>flex</h1>
+{# Меню mysite/templates/menu.html #}
+{% include 'menu.html' %}
+
+
+
+
+
+{% endblock %}
