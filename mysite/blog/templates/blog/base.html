@@ -1,11 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>blog/base.html</h1>
+{% load static wagtailuserbar %}
 
-</body>
+<!DOCTYPE html>
+<html class="no-js" lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            {% block title %}
+          mysite/temlates
+            {% endblock %}
+        </title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {# Global stylesheets #}
+
+
+        {% block extra_css %}
+            {# Override this in templates to add extra stylesheets #}
+        {% endblock %}
+    </head>
+
+    <body class="">
+        {% wagtailuserbar %}
+
+
+        {% block content %}
+
+        {% endblock %}
+
+
+        {# Global javascript #}
+        <script type="text/javascript" src="{% static 'js/mysite.js' %}"></script>
+
+
+    </body>
 </html>

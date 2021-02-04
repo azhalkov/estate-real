@@ -10,10 +10,9 @@ from wagtail.documents import urls as wagtaildocs_urls
 from search import views as search_views
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='home.html'), name='home'),
 
+    path('kabinet/', TemplateView.as_view(template_name='home.html'), name='home'),
     path('django-admin/', admin.site.urls),
-
     path('admin/', include(wagtailadmin_urls)),
     path('documents/', include(wagtaildocs_urls)),
     path('accounts/', include('accounts.urls')),

@@ -1,0 +1,43 @@
+{# mysite/home/page #}
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+    <meta charset="UTF-8">
+
+
+{% block title %}
+          {{ page.title }}
+            {% endblock %}
+
+{% block content %}
+
+   <div class="alert alert-success" role="alert">
+       Режим 'Гость'.<a href="{% url 'home' %}">Вход в кабинет</a>
+
+</div>
+
+<h3 class="h3"> Поле banner_title: {{ page.banner_title }} </h3>
+
+        <h1>Поле banner_subtitle|richtext(заголовок, текст, картинка): {{ page.banner_subtitle|richtext }}</h1>
+
+{% image self.banner_image fill-900x400 as img %}
+<img src="{{img.url}}" alt="{{ page.banner_title }}">
+
+<p>Документы: {{ page.book_file }}</p>
+<p>Banner_cta: {{ page.banner_cta }}</p>
+<div class="alert alert-warning" role="alert" style="background-image: url('{{img.url}}'); background-size: cover;">
+   {% if self.banner_cta %}
+    <a class="btn btn-primary btn-lg" href="" role="button">Ссылка на</a>
+    {% endif %}
+</div>
+
+
+        {% endblock %}
+
+
+
+
+
+

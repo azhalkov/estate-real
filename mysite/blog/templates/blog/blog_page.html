@@ -1,19 +1,19 @@
+{% extends 'blog/base.html' %}
 
+{% load static wagtailuserbar %}
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ page.title }}</title>
-</head>
-<body>
 
-{{ page.related_links.name}}
+{% block title %}
+ {{ page.title }}
+    {% endblock %}
 
-{{ page.zagolovok }}
+
+{% block content %}
+<p>Ссылка: {{ page.related_links.name}}</p>
+<p>{{ page.zagolovok }}</p>
 {{ page.body|richtext }}
 {% image page.photo fill-800 %}
 
-</body>
-</html>
+{% wagtailuserbar %}
+         {% endblock %}
