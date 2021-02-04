@@ -4,23 +4,36 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/litera.css' %}">
+{% endblock %}
 
 
 {% block title %}
-          {{ page.title }}
-            {% endblock %}
+{{ page.title }}
+{% endblock %}
+
 
 {% block content %}
 
-   <div class="alert alert-success" role="alert">
-       Режим 'Гость'.<a href="{% url 'home' %}">Вход в кабинет</a>
+{# Меню mysite/templates/menu.html #}
+{% include 'menu.html' %}
 
+{% image self.banner_image fill-900x200 as img %}
+<div class="jumbotron"  style="background-image: url('{{img.url}}'); background-size: cover;">
+    <h1 class="display-3">{{ page.banner_title }}</h1>
+    <p class="lead"></p>
+    <hr class="my-4">
+<div class="alert alert-success" role="alert">
+   <a href="{% url 'home' %}">Вход в кабинет</a>
+    <hr class="my-4">
+</div>
 </div>
 
 <h3 class="h3"> Поле banner_title: {{ page.banner_title }} </h3>
 
-        <h1>Поле banner_subtitle|richtext(заголовок, текст, картинка): {{ page.banner_subtitle|richtext }}</h1>
+<h1>Поле banner_subtitle|richtext(заголовок, текст, картинка): {{ page.banner_subtitle|richtext }}</h1>
 
 {% image self.banner_image fill-900x400 as img %}
 <img src="{{img.url}}" alt="{{ page.banner_title }}">
@@ -28,13 +41,41 @@
 <p>Документы: {{ page.book_file }}</p>
 <p>Banner_cta: {{ page.banner_cta }}</p>
 <div class="alert alert-warning" role="alert" style="background-image: url('{{img.url}}'); background-size: cover;">
-   {% if self.banner_cta %}
+    {% if self.banner_cta %}
     <a class="btn btn-primary btn-lg" href="" role="button">Ссылка на</a>
     {% endif %}
 </div>
 
+{# Пагинация #}
+<div>
+  <ul class="pagination">
+    <li class="page-item disabled">
+      <a class="page-link" href="#">&laquo;</a>
+    </li>
+    <li class="page-item active">
+      <a class="page-link" href="#">1</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">2</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">3</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">4</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">5</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">&raquo;</a>
+    </li>
+  </ul>
+</div>
+{# Конец блока пагинации #}
 
-        {% endblock %}
+
+{% endblock %}
 
 
 

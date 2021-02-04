@@ -14,10 +14,10 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
         {# Global stylesheets #}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/mysite.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/united.css' %}">
 
         {% block extra_css %}
-            {# Override this in templates to add extra stylesheets #}
+             <link rel="stylesheet" type="text/css" href="{% static 'css/united.css' %}">
         {% endblock %}
     </head>
 

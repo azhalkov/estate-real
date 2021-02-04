@@ -12,6 +12,7 @@ from wagtail.documents.edit_handlers import DocumentChooserPanel
 class HomePage(Page):
     """ Главная страница модель home, создаем
     поля для сохранения в базе данных (наследуем от wagtail и django)"""
+    show_in_menus_default = True
     templates = 'home/home_page.html'
     max_count = 1
     banner_title = models.CharField(max_length=100, blank=True, null=True, help_text='Для пля Title')
