@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'accounts', # new
     'blog',
     'flex',
+    'streams',
     # 'debug_toolbar',  # (k9)
 ]
 

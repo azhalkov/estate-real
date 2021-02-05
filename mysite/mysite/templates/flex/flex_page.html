@@ -2,6 +2,7 @@
 
 {% extends "base.html" %}
 {% load static %}
+{% load wagtailcore_tags %}
 {% load wagtailcore_tags wagtailimages_tags %}
 
 
@@ -27,16 +28,20 @@
 
 <div class="jumbotron"  style="background-color: white; background-size: cover;">
     <h3 class="display-3">{{ page.title }}</h3>
-    <h1 class="display-3">{{ page.subtitle }}</h1>
+    <h1 class="display-3">{{ page.subtitle }}!</h1>
 
     <p class="lead"></p>
     <hr class="my-4">
-<div class="alert alert-success" role="alert">
+    <div class="alert alert-success" role="alert">
 
-    <hr class="my-4">
-</div>
+        <hr class="my-4">
+    </div>
 </div>
 
+
+{% for block in page.content %}
+    {% include_block block %}
+{% endfor %}
 
 
 {% endblock %}
