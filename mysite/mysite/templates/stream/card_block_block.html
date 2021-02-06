@@ -1,0 +1,26 @@
+{% load wagtailimages_tags %}
+{% load static %}
+
+<h3 class="text-center">{{ self.title }}</h3>
+<hr>
+<div class="container">
+  <div class="card-deck">
+    {% for card in self.cards %}
+
+    <div class="card" >
+      <div class="card-body">
+        {% image card.image fill-300x200 as img%}
+        <img class="card-img-top" src="{{ img.url }}" alt="{{ img.alt }}">
+        <h5 class="card-title">{{ card.title }}</h5>
+        <p class="card-text">{{ card.text }}</p>
+        {% if card.button_page %}
+            <a class="btn btn-outline-success" href="{{ card.button_page.url }}" target="_blank">На сайте</a>
+        {% elif card.button_url %}
+            <a href="{{card.button_url}}" target="_blank" class="btn btn-primary">Личный сайт</a>
+        {% endif %}
+        <a href="#">Отзывы</a>
+      </div>
+    </div>
+    {% endfor %}
+   </div>
+</div>

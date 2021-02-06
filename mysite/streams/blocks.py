@@ -1,5 +1,6 @@
 """streams/blocks"""
 from wagtail.core import blocks
+from wagtail.images.blocks import ImageChooserBlock
 
 
 class TitleAndTextBlock(blocks.StructBlock):
@@ -16,6 +17,27 @@ class TitleAndTextBlock(blocks.StructBlock):
         template = "stream/title_and_text_block.html"
         icon = "edit"
         label = "Заголовок и текст"
+
+
+class CardBlock(blocks.StructBlock):
+    """Карта - Фото, заголовок, урл, кнопка"""
+    title = blocks.CharBlock(required=True, help_text='Пишите заголовок')
+    cards = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("image", ImageChooserBlock(required=True)),
+                ("title", blocks.CharBlock(required=True, max_length=40)),
+                ("text", blocks.TextBlock(required=True, max_length=200)),
+                ("button_page", blocks.PageChooserBlock(required=False)),
+                ("button_url", blocks.URLBlock(required=False, help_text="")),
+            ]
+        )
+    )
+    class Meta:
+        template = "stream/card_block_block.html"
+        icon = 'placeholder'
+        label = 'Karti'
+
 
 
 class RichtextBlock(blocks.RichTextBlock):

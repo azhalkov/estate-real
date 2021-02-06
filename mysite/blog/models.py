@@ -6,10 +6,10 @@ from django.db import models
 from modelcluster.fields import ParentalKey
 
 from wagtail.core.models import Page, Orderable
-from wagtail.core.fields import RichTextField
-from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel
+from wagtail.core.fields import RichTextField, StreamField
+from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel, StreamFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
-from wagtail.search import index
+from streams import blocks
 
 
 class BlogPage(Page):
@@ -25,23 +25,20 @@ class BlogPage(Page):
         on_delete=models.SET_NULL,
         related_name='+'
     )
-
-
-    # Search index configuration
-
-    # search_fields = Page.search_fields + [
-    #     index.SearchField('body'),
-    #     index.FilterField('date'),
-    # ]
-
-
-    # Editor panels configuration
-
+    content = StreamField(
+        [
+            ('fuul_richtext', blocks.RichtextBlock()),
+        ],
+        null=True,
+        blank=True,
+    )
+    """Поля в админке """
     content_panels = Page.content_panels + [
         FieldPanel('zagolovok'),
         FieldPanel('date'),
         FieldPanel('body', classname="full"),
         InlinePanel('related_links', label="Related links"),
+        StreamFieldPanel("content"),
     ]
 
     promote_panels = [
