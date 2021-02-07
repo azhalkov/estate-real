@@ -13,7 +13,7 @@ from wagtail.documents.edit_handlers import DocumentChooserPanel
 from streams import blocks
 
 class HomePageCarouselImages(Orderable):
-    """ 5 фото карусели домашней страницы"""
+    """ 5 фото карусели домашней страницы https://www.youtube.com/watch?v=Qqcd72bcPmc&list=PLMQHMcNi6ocsS8Bfnuy_IDgJ4bHRRrvub&index=13"""
     page = ParentalKey("home.HomePage", related_name="carousel_images")
     carousel_image = models.ForeignKey(
         "wagtailimages.Image",
@@ -80,9 +80,11 @@ class HomePage(Page):
             DocumentChooserPanel('book_file'),
         ], heading="Опции баннера"),
 
-        MultiFieldPanel([
-            InlinePanel("carousel_images"),
-        ], heading='Карусель фото'),
+        MultiFieldPanel(
+            [
+                InlinePanel("carousel_images"),
+            ],
+            heading='Карусель фото'),
         StreamFieldPanel('content'),
     ]
 
