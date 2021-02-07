@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'flex',
     'streams',
     'site_settings',  # llllll
+    'subscribers',
 
     # 'debug_toolbar',  # (k9)
 ]
