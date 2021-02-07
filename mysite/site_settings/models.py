@@ -13,7 +13,7 @@ class SocialMediaSettings(BaseSetting):
         MultiFieldPanel([
             FieldPanel('facebook'),
             FieldPanel('youtube'),
-        ], heading="Опции баннера"),
+        ], heading="Ссылки на соцсети"),
     ]
     # content_panels = Page.content_panels + [
     # ]

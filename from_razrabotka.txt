@@ -1,0 +1,5 @@
+https://fontawesome.com/    текст иконки
+https://fontawesome.com/how-to-use/on-the-web/using-with/python-and-django  для Джанго
+
+https://bootswatch.com/litera/
+https://getbootstrap.com/docs/4.0/components/carousel/

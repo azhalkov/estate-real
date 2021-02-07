@@ -104,12 +104,20 @@
 </div>
 {# Конец блока пагинации #}
 
+Site_settings:
+{% if settings.site_settings.SocialMediaSettings.youtube %}
+<p><a href="{{ settings.site_settings.SocialMediaSettings.youtube }}" target="_blank"><i class="fab fa-facebook-square">Ютуб</i></a></p>
+{% endif  %}
+
+{% if settings.site_settings.SocialMediaSettings.facebook %}
+<p><a href="{{ settings.site_settings.SocialMediaSettings.facebook }}" target="_blank"><i class="fab fa-facebook-square">FaceBoock</i></a></p>
+{% endif  %}
+<i class="fab fa-facebook-f"></i>
 {% endblock %}
 
 {% block extra_js %}
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         {% endblock %}
-
 
 
 

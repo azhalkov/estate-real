@@ -30,7 +30,7 @@ INSTALLED_APPS = [
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
-    'wagtail.contrib.settings', # llllll
+    'wagtail.contrib.settings',  # llllll
     'wagtail.embeds',
     'wagtail.sites',
     'wagtail.users',
@@ -56,7 +56,7 @@ INSTALLED_APPS = [
     'blog',
     'flex',
     'streams',
-    'site_settings',
+    'site_settings',  # llllll
 
     # 'debug_toolbar',  # (k9)
 ]
@@ -74,7 +74,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
 
-    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
+    'wagtail.contrib.redirects.middleware.RedirectMiddleware',  # llllll
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -93,7 +93,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
 
-                # 'django.contrib.settings.context_processors.settings',
+                'wagtail.contrib.settings.context_processors.settings',
             ],
         },
     },
