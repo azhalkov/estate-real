@@ -46,6 +46,13 @@
     {% endif %}
 </div>
 
+
+{% for block in page.content %}
+    {% include_block block %}
+{% endfor %}
+
+
+
 {# Пагинация #}
 <div>
   <ul class="pagination">

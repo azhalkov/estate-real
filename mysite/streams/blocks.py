@@ -65,3 +65,17 @@ class SimpleRichtextBlock(blocks.RichTextBlock):
         template = "stream/simple_richtext_block.html"
         icon = 'edit'
         label = 'Simpl richtext'
+
+class CTABlock(blocks.StructBlock):
+    """Простой звонок в раздел активации"""
+    """https://www.youtube.com/watch?v=B1WXVIfiKXs&list=PLMQHMcNi6ocsS8Bfnuy_IDgJ4bHRRrvub&index=11"""
+    title = blocks.CharBlock(required=True, max_length=60)
+    text = blocks.RichTextBlock(required=True, features=['bold', 'italic'])
+    button_page = blocks.PageChooserBlock(required=False)
+    button_url = blocks.URLBlock(required=False, help_text='url')
+    button_text = blocks.CharBlock(required=True, max_length=200, default='Нажать')
+
+    class Meta:
+        template = 'stream/cta_block.html'
+        icon = 'placeholder'
+        label = "Caal to Action"

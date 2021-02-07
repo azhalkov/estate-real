@@ -2,11 +2,13 @@
 from django.db import models
 
 from wagtail.core.models import Page
-from wagtail.core.fields import RichTextField
-from wagtail.admin.edit_handlers import FieldPanel, PageChooserPanel
+from wagtail.core.fields import RichTextField, StreamField
+from wagtail.admin.edit_handlers import FieldPanel, PageChooserPanel, StreamFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.documents.models import Document
 from wagtail.documents.edit_handlers import DocumentChooserPanel
+
+from streams import blocks
 
 
 class HomePage(Page):
@@ -41,6 +43,14 @@ class HomePage(Page):
         related_name='+'
     )
 
+    content = StreamField(
+        [
+            ("cta", blocks.CTABlock()),
+        ],
+        blank = True,
+        null=True,
+    )
+
     """Поля для админки (content_panels)"""
     content_panels = Page.content_panels + [
         FieldPanel('banner_title'),
@@ -48,6 +58,7 @@ class HomePage(Page):
         ImageChooserPanel("banner_image"),
         PageChooserPanel("banner_cta"),
         DocumentChooserPanel('book_file'),
+        StreamFieldPanel('content'),
     ]
 
     # panels = pass
