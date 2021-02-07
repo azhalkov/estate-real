@@ -52,6 +52,29 @@
 {% endfor %}
 
 
+{# Карусель #}
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+      {% for loop in self.carousel_images.all %}
+          {% image loop.carousel_image fill-900x200 as img %}
+          <div class="carousel-item  {% if forloop.counter == 1 %} active {% endif %}">
+              <img class="d-block w-100" src="{{ img.url }}" alt="First slide">
+          </div>
+
+      {% endfor %}
+
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+{# Конец блока карусель #}
+
 
 {# Пагинация #}
 <div>
@@ -81,10 +104,11 @@
 </div>
 {# Конец блока пагинации #}
 
-
 {% endblock %}
 
-
+{% block extra_js %}
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        {% endblock %}
 
 
 
