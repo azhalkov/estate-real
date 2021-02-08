@@ -3,6 +3,7 @@ from wagtail.core import blocks
 from wagtail.images.blocks import ImageChooserBlock
 
 
+
 class TitleAndTextBlock(blocks.StructBlock):
     """Заголовок и текст больше нечего Для вставки на страницу mysite/templates/flex/flex_page.html
     {% for block in page.content %}    {% include_block block %} {% endfor %}
@@ -33,16 +34,15 @@ class CardBlock(blocks.StructBlock):
             ]
         )
     )
+
     class Meta:
         template = "stream/card_block_block.html"
         icon = 'placeholder'
         label = 'Karti'
 
 
-
 class RichtextBlock(blocks.RichTextBlock):
     """Класс streams/blocks/RichtextBlock шаблон html в корневом templates/stream"""
-
 
     class Meta:
         template = "stream/richtext_block.html"
@@ -53,7 +53,7 @@ class RichtextBlock(blocks.RichTextBlock):
 class SimpleRichtextBlock(blocks.RichTextBlock):
     """Класс streams/blocks/RichtextBlock шаблон html в корневом templates/stream"""
 
-    def __init__(self, required=True, help_text=None, editor='default', features=None, validators=(), **kwargs):
+    def __init__(self,  **kwargs):  # required=True, help_text=None, editor='default', features=None, validators=(),
         super().__init__(**kwargs)
         self.features = [
             'bold',
@@ -65,6 +65,7 @@ class SimpleRichtextBlock(blocks.RichTextBlock):
         template = "stream/simple_richtext_block.html"
         icon = 'edit'
         label = 'Simpl richtext'
+
 
 class CTABlock(blocks.StructBlock):
     """Простой звонок в раздел активации"""
@@ -79,3 +80,36 @@ class CTABlock(blocks.StructBlock):
         template = 'stream/cta_block.html'
         icon = 'placeholder'
         label = "Caal to Action"
+
+
+class LinkStructValue(blocks.StructValue):
+    """Логика для url"""
+
+    def url(self):
+        button_page = self.get('button_page')
+        button_url = self.get('button_url')
+        if button_page:
+            return button_page
+        elif button_url:
+            return button_url
+
+        return None
+
+
+class ButtonBlock(blocks.StructBlock):
+    """Внешний или внутренний URL"""
+
+    button_page = blocks.PageChooserBlock(required=False, help_text='Выбор в первую очередь')
+    button_url = blocks.URLBlock(required=False, help_text='Выбор - вторая очередь')
+
+    # def get_context(self, request, *args, **kwargs):
+    #     context = super().get_context(request, *args, **kwargs)
+    #     context['latest_post'] = BlogDetailPage.objects.live().public()[:2]
+    #     return context
+
+    class Meta:
+        template = 'stream/button_block.html'
+        icon = 'placeholder'
+        label = "Одна кнопка"
+        value_class = LinkStructValue
+

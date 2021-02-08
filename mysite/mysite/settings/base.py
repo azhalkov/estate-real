@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sitemaps',
+    'django.contrib.sitemaps',  # https://www.youtube.com/watch?v=vGN66xS0ay8&list=PLMQHMcNi6ocsS8Bfnuy_IDgJ4bHRRrvub&index=18
 
     'accounts', # new
     'blog',
