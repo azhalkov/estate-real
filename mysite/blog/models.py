@@ -31,6 +31,20 @@ class BlogListingPage(Page):
         context["posts"] = BlogDetailPage.objects.live().public()
         return context
 
+    def get_sitemap_urls(self, request=None):
+        sitemap = super().get_sitemap_urls(request)
+        sitemap.append(
+            {
+                "location": self.full_url,
+                "lastmod": self.latest_revision_created_at,
+                'changefreq': 'monthly',
+                'priority': 1
+            }
+        )
+
+        return sitemap
+
+
 
 class BlogDetailPage(Page):
     """Blog detail page."""
