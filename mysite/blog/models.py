@@ -5,8 +5,46 @@ from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, InlinePane
 from wagtail.core.fields import StreamField, RichTextField
 from wagtail.core.models import Page, Orderable
 from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.snippets.models import register_snippet
 
 from streams import blocks
+
+
+class BlogAvtor(models.Model):
+    """Сниппет автора блога"""
+    name = models.CharField('Ф.И.О.', max_length=100, default='Имя и фамилия')
+    website = models.URLField('Ссылка на сайт', blank=True, null=True)
+    avatar = models.ForeignKey(
+        "wagtailimages.Image",
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name = '+'
+    )
+    panels = [
+        MultiFieldPanel(
+            [
+                FieldPanel("name"),
+                ImageChooserPanel("avatar"),
+            ],
+            heading="Имя и фото"
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel("website"),
+            ],
+            heading='Ссылка'
+        )
+    ]
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Автор блога'
+        verbose_name_plural = 'Авторы'
+
+register_snippet(BlogAvtor)
+
 
 
 class BlogListingPage(Page):
@@ -29,6 +67,7 @@ class BlogListingPage(Page):
         """Adding custom stuff to our context."""
         context = super().get_context(request, *args, **kwargs)
         context["posts"] = BlogDetailPage.objects.live().public()
+        context['authors'] = BlogAvtor.objects.all()
         return context
 
     def get_sitemap_urls(self, request=None):

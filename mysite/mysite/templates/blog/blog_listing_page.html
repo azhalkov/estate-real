@@ -33,4 +33,14 @@
             </div>
         {% endfor %}
     </div>
+
+{% for author in authors %}
+<hr>
+{% image author.avatar fill-150x150 as img %}
+<img src="{{ img.url}}" alt="{{ author.name }}">
+<p>{{ author.name }} <a href="{{ author.website }}" target="_blank">Вебсайт</a></p>
+
+{% endfor %}
+
+
 {% endblock content %}
