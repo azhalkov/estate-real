@@ -58,7 +58,7 @@ class BlogAvtor(models.Model):
         verbose_name = 'Автор блога'
         verbose_name_plural = 'Авторы'
 
-register_snippet(BlogAvtor)
+register_snippet(BlogAvtor)  # https://www.youtube.com/watch?v=AZuyqG11hcE&list=PLMQHMcNi6ocsS8Bfnuy_IDgJ4bHRRrvub&index=21
 
 
 

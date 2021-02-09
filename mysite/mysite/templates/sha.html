@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    {% block metategi %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    {% endblock metategi %}
+    <title>
+        {% block title %}
+        Шаблон
+        {% endblock title %}
+    </title>
+</head>
+<body>
+
+{% block zagolovok %}
+<div class="text-center mt-5">
+    <h3>
+        <small class="text-muted font-italic">Краснодарский край</small>
+    </h3>
+    <h1>
+        <small class="text-muted"><u>Сельская недвижимость</u></small>
+    </h1>
+    <hr>
+</div>
+{% endblock zagolovok %}
+
+<!-- Кнопки -->
+<div class="container mt-5">
+    <form>
+        <div class="form-row align-items-center">
+            <div class="col-sm-5 my-1">
+                <label class="sr-only" for="inlineFormInputName">Поиск</label>
+                <input type="text" class="form-control" id="inlineFormInputName" placeholder="Введите населенный пункт">
+            </div>
+
+            <div class="col-auto my-1">
+                <button type="submit" class="btn btn-primary">Поиск</button>
+            </div>
+        </div>
+    </form>
+</div>
+<hr>
+<!--Кнопки-->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-sm-4 mt-3">
+            <a href="https://bootstrap-4.ru/docs/4.0/components/buttons/" class="btn btn-outline-secondary" target="_blank">
+                Разместить бесплатное объявление
+            </a>
+        </div>
+        <div class="col-sm-3  mt-3">
+            <a href="https://www.youtube.com/watch?v=GMizYtA4xJM&list=PLMQHMcNi6ocsS8Bfnuy_IDgJ4bHRRrvub&index=22" class="btn btn-outline-secondary" target="_blank">
+                Смотреть недвижимость
+            </a>
+        </div>
+        <div class="col-sm-5 mt-3">
+            <a href="https://bootstrap-4.ru/docs/4.0/components/buttons/" class="btn btn-outline-success" target="_blank">
+                Личный кабинет
+            </a>
+        </div>
+    </div>
+
+
+
+    <!--Продовцу 1 колонка-->
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card mt-4">
+                    <h5 class="card-header">Продавцу</h5>
+                    <div class="card-body">
+                        <h5 class="card-title text-muted font-italic">Публикуйте информацию о недвижимости.</h5>
+                        <p class="card-text">
+                        <ul>
+
+                            <li>
+                                <p class="text-muted font-italic">Обязательная регистрация</p>
+                            </li>
+                            <li>
+                                <p class="text-muted font-italic">3 объявления о продаже - бесплатно.</p>
+                            </li>
+                            <li>
+                                <p class="text-muted font-italic">Последующие - 500 рублей.</p>
+                            </li>
+                            <li>
+                                <p class="text-muted font-italic">Срок размещения 5 лет.</p>
+                            </li>
+                            <li>
+                                <p class="text-muted font-italic">Размещайте свои контактные данные для покупателей</p>
+                            </li>
+
+                        </ul>
+
+                        <a href="#" class="btn btn-outline-success">Перейти к регистрации</a>
+                    </div>
+                </div>
+    </div>
+
+   <!-- Покупателю 2 колонка-->
+    <div class="col-sm-6">
+      <div class="card mt-4">
+                <h5 class="card-header">Покупателю</h5>
+                <div class="card-body">
+                    <h5 class="card-title text-muted font-italic">Удобный поиск с применением сортировок</h5>
+
+                    <ul>
+                        <li>
+                            <p class="text-muted font-italic">Поиск без регистрации</p>
+                        </li>
+                        <li>
+                            <p class="text-muted font-italic">Звонки продавцам - напрямую.</p>
+                        </li>
+                        <li>
+                            <p class="text-muted font-italic">Платный личный кабинет по желанию.</p>
+                        </li>
+                        <li>
+                            <p class="text-muted font-italic">Метки - 'работа', 'река', 'хозпостройки' ...</p>
+                        </li>
+                        <li>
+                            <p class="text-muted font-italic">Удобный найм специалистов.</p>
+                        </li>
+
+                    </ul>
+
+                    <a href="#" class="btn btn-outline-success">Перейти к поиску</a>
+                </div>
+            </div>
+
+  </div>
+</div>
+    <hr>
+
+{% block script %}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+{% endblock script %}
+</body>
+</html>

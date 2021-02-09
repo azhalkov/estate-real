@@ -22,7 +22,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('search/', search_views.search, name='search'),
-
+    path('sha/', TemplateView.as_view(template_name='sha.html'), name='sha'),
 
 ]
 
