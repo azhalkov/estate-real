@@ -5,9 +5,24 @@ from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, InlinePane
 from wagtail.core.fields import StreamField, RichTextField
 from wagtail.core.models import Page, Orderable
 from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.snippets.models import register_snippet
 
 from streams import blocks
+
+#
+
+class BlogAuthorsOrderable(Orderable):
+    """это позволяет нам выбрать одного или нескольких авторов блога
+    https://www.youtube.com/watch?v=AZuyqG11hcE&list=PLMQHMcNi6ocsS8Bfnuy_IDgJ4bHRRrvub&index=21"""
+    page = ParentalKey("blog.BlogDetailPage", related_name='blog_authors')
+    author = models.ForeignKey(
+        "blog.BlogAvtor",
+        on_delete=models.CASCADE,
+    )
+    panels = [
+        SnippetChooserPanel("author"),
+    ]
 
 
 class BlogAvtor(models.Model):
@@ -118,6 +133,12 @@ class BlogDetailPage(Page):
     content_panels = Page.content_panels + [
         FieldPanel("custom_title"),
         ImageChooserPanel("blog_image"),
+        MultiFieldPanel(
+            [
+                InlinePanel("blog_authors", label="Автор", min_num=1, max_num=4)
+            ],
+            heading="Автор(ы)"
+        ),
         StreamFieldPanel("content"),
     ]
 

@@ -16,6 +16,26 @@
         </div>
     </div>
 
+<ul>
+    {% for author in self.blog_authors.all %}
+     <li>
+    {% image author.author.avatar fill-150x150 as imga %}
+        <img src="{{ imga.url }}" alt="">
+
+
+        {{ author.author.name }}
+        {% if author.author.website %}
+        <a href="{{ author.author.website }}" target="_blank">
+            (Сайт)
+        </a>
+         <hr>
+        {% endif %}
+    </li>
+
+    {% endfor%}
+
+</ul>
+
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
